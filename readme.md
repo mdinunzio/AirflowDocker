@@ -1,0 +1,1 @@
+- [Dockerfile-ubuntu-custom](https://github.com/mdinunzio/AirflowDocker/blob/main/Dockerfile-ubuntu-custom): The first attempt at getting [this Data with Marc video](https://youtu.be/o88LNQDH2uI?si=C3td6aDPuKT8FyfL) to intall properly on a Docker Ubuntu container.
