@@ -27,8 +27,9 @@ RUN apt-get update && apt-get install -y \
     apt install sqlite3 && \
     apt install libpq-dev build-essential -y && \
     apt install python3.10-dev -y && \
-    apt-get install wget ca-certificates && \
-    apt-get install postgresql postgresql-contrib
+    # apt-get install wget ca-certificates && \
+    apt-get install postgresql postgresql-contrib && \
+    su - postgres -c "/usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/13/main" && \
 
 # Create a Python virtual environment and install Airflow
 RUN /bin/python3.10 -m venv /venv && \
@@ -54,10 +55,9 @@ CMD ["bash"]
 
 # Commands to run within bash
 #    apt-get install sudo
+#    apt-get install wget ca-certificates
 #    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 #   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-# su - postgres -c "/usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/13/main"
-# su - postgres -c "pg_ctlcluster 16 main start"
 
 # sudo -i -u postgres
 # psql
