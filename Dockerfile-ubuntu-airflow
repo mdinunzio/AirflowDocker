@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y \
     apt install libpq-dev build-essential -y && \
     apt install python3.10-dev -y && \
     # apt-get install wget ca-certificates && \
-    apt-get install postgresql postgresql-contrib && \
+    apt-get install postgresql postgresql-contrib -y && \
     su - postgres -c "/usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/13/main" && \
     su - postgres -c "psql -U postgres -c \"CREATE DATABASE airflow;\"" && \
     su - postgres -c "psql -U postgres -c \"CREATE USER airflow WITH PASSWORD 'airflow';\"" && \
