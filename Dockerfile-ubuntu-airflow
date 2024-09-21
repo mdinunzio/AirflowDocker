@@ -49,7 +49,7 @@ CMD ["bash"]
 
 # Command to build the container
 # docker build -f Dockerfile-ubuntu-airflow -t ubuntu-airflow .
-# Command to run the container
+# Command to run the container (TODO: add port)
 # docker run -it ubuntu-airflow
 # Command to reconnect to the container
 # docker exect -it <container-id> bash
