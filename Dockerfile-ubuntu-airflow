@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
     apt install python3.10-dev -y && \
     # apt-get install wget ca-certificates && \
     apt-get install postgresql postgresql-contrib -y && \
-    # su - postgres -c "/usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/16/main" && \
+    # su - postgres -c "/usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/13/main" && \
     su - postgres -c "pg_ctlcluster 16 main start" && \
     su - postgres -c "psql -U postgres -c \"CREATE DATABASE airflow;\"" && \
     su - postgres -c "psql -U postgres -c \"CREATE USER airflow WITH PASSWORD 'airflow';\"" && \
@@ -38,8 +38,9 @@ RUN apt-get update && apt-get install -y \
     su - postgres -c "psql -U postgres -c \"GRANT ALL PRIVILEGES ON SCHEMA public TO airflow;\"" && \
     su - postgres -c "psql -U postgres -c \"ALTER USER airflow WITH SUPERUSER;\"" 
 
-# # Create a Python virtual environment and install Airflow
+# Create a Python virtual environment and install Airflow
 RUN /bin/python3.10 -m venv /venv && \
+    su - postgres -c "pg_ctlcluster 16 main start" && \
     /bin/bash -c "source /venv/bin/activate && \
     pip install --upgrade pip && \
     pip install "apache-airflow[postgres]==2.5.0" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.5.0/constraints-3.7.txt" && \
