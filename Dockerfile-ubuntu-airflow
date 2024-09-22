@@ -56,8 +56,8 @@ CMD ["bash"]
 
 # Command to build the container
 # docker build -f Dockerfile-ubuntu-airflow -t ubuntu-airflow .
-# Command to run the container (TODO: add port)
-# docker run -it ubuntu-airflow
+# Command to run the container
+# docker run -it ubuntu-airflow -p 8080:8080
 # Command to reconnect to the container
 # docker exect -it <container-id> bash
 # Command to change root password for container
