@@ -53,7 +53,7 @@ RUN apt-get update && apt-get install -y \
 # airflow scheduler"
 
 # Set the default command to start a bash shell
-CMD ["/bin/bash", "-c", "source /venv/bin/activate && airflow webserver & airflow scheduler"]
+CMD ["/bin/bash", "-c", "/venv/bin/airflow webserver & /venv/bin/airflow scheduler"]
 
 # Command to build the container
 # docker build -f Dockerfile-ubuntu-airflow -t ubuntu-airflow .
