@@ -13,10 +13,8 @@
 FROM ubuntu:latest
 
 # Update the package list and install some basic utilities (optional)
-RUN apt-get update && apt-get install -y \
-    bash \
-    curl \
-    vim && \
+RUN apt-get update && \
+    apt-get install -y bash curl vim && \
     rm -rf /var/lib/apt/lists/* && \
     apt update && \
     apt install python3-pip -y && \
