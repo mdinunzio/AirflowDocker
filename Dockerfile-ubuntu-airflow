@@ -49,8 +49,8 @@ RUN su - postgres -c "pg_ctlcluster 16 main start" && \
     sed -i 's#SequentialExecutor#LocalExecutor#g' /root/airflow/airflow.cfg && \
     airflow db init && \
     airflow users create -u airflow -f airflow -l airflow -r Admin -e airflow@gmail.com --password airflow && \
-    airflow webserver & && \
-    airflow scheduler &"
+    airflow webserver & \
+    airflow scheduler"
 
 # Set the default command to start a bash shell
 CMD ["bash"]
