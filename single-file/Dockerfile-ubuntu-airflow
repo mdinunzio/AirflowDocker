@@ -48,8 +48,12 @@ CMD ["/bin/bash", "-c", "su - postgres -c \"pg_ctlcluster 16 main start\"; sleep
 # Command to build the container
 # docker build -f Dockerfile-ubuntu-airflow -t ubuntu-airflow .
 
-# Command to run the container
-# docker run -p 8080:8080 ubuntu-airflow
+# Command to run the container (Mac/Linux)
+# docker run -p 8080:8080 -v $(pwd)/airflow/dags:/root/airflow/dags ubuntu-airflow
+# Command to run the container (Bash) 
+# docker run -p 8080:8080 -v %cd%\airflow/dags:/root/airflow/dags ubuntu-airflow
+
+
 
 # Command to reconnect to the container
 # docker exect -it <container-id> bash
