@@ -30,7 +30,12 @@ def _training_model():
 
 
 with DAG(
-    "my_dag", start_date=datetime(2021, 1, 1), schedule_interval="@daily", catchup=False
+    "my_dag",
+    start_date=datetime(2021, 1, 1),
+    schedule="@daily",
+    description="Training ML Models.",
+    tags=["data_engineering", "Mark"],
+    catchup=False,
 ) as dag:
     training_model_A = PythonOperator(
         task_id="training_model_A", python_callable=_training_model
