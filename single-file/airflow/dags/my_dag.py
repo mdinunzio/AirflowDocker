@@ -4,13 +4,10 @@ https://www.youtube.com/watch?v=IH1-0hwFZRQ&list=PL79i7SgJCJ9hf7JgG3S-3lOpsk2QCp
 """
 
 from datetime import datetime
-from random import randint
 
 from airflow import DAG
 from airflow.decorators import task
 from airflow.operators.bash import BashOperator
-from airflow.operators.python import BranchPythonOperator, PythonOperator
-
 
 with DAG(
     "my_dag",
@@ -22,8 +19,8 @@ with DAG(
 ):
 
     @task
-    def training_model():
-        return randint(1, 10)
+    def training_model(accuracy):
+        return accuracy
 
     @task.branch
     def choose_best_model(accuracies):
@@ -35,4 +32,7 @@ with DAG(
     accurate = BashOperator(task_id="accurate", bash_command="echo 'accurate'")
     inaccurate = BashOperator(task_id="inaccurate", bash_command="echo 'inaccurate'")
 
-    choose_best_model(training_model())
+    choose_best_model(training_model.expand(accuracy=[5, 10, 6])) >> [
+        accurate,
+        inaccurate,
+    ]
