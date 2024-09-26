@@ -16,4 +16,5 @@ with DAG(
         timeout=60 * 5,
         mode="reschedule",
         soft_fail=True,
+        filepath="/tmp/my_file.txt",
     )
