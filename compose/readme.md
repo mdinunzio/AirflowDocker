@@ -1,6 +1,6 @@
 # Compose (Basic)
 
-This folder constains a standard implementation of Airflow using the unmodified docker compose file produced by the Airflow community.
+This folder contains a standard implementation of Airflow using the unmodified docker compose file produced by the Airflow community.
 
 # Tutorials
 
