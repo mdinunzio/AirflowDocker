@@ -1,4 +1,3 @@
-- Update compose to have Postgresql folders mapped to local volume
 - Update compose to use RabbitMQ instead of redis
 - Do standalone celery and celery container demo
 - Do standalone RabbitMQ container demo
@@ -6,3 +5,4 @@
 
 Done:
 - Update compose to use config on local volume
+- Update compose to have Postgresql folders mapped to local volume
