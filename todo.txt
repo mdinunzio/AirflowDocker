@@ -1,5 +1,5 @@
 - Update compose to use RabbitMQ instead of redis
-- Do standalone celery and celery container demo
+- Do standalone celery and flower container demo
 - Do standalone RabbitMQ container demo
 - Document how to deploy docker/docker compose to AWS
 
