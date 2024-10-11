@@ -1,3 +1,5 @@
+- Use .env file and reference contents in docker-compose.yaml
+- Test finance dag
 - Update compose to use RabbitMQ instead of redis
 - Do standalone celery and flower container demo
 - Do standalone RabbitMQ container demo
