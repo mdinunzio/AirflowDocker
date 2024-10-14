@@ -1,4 +1,5 @@
 *.code-workspace
+airflow-local-dev/dags
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
