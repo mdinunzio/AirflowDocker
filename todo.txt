@@ -1,4 +1,5 @@
 - Setup email notifications
+- Setup S3 or C: XCom backend
 - Update compose to use RabbitMQ instead of redis
 - Do standalone celery and flower container demo
 - Do standalone RabbitMQ container demo
