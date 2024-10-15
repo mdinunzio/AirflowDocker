@@ -1,5 +1,4 @@
-- Use .env file and reference contents in docker-compose.yaml
-- Test finance dag
+- Setup email notifications
 - Update compose to use RabbitMQ instead of redis
 - Do standalone celery and flower container demo
 - Do standalone RabbitMQ container demo
@@ -8,3 +7,5 @@
 Done:
 - Update compose to use config on local volume
 - Update compose to have Postgresql folders mapped to local volume
+- Use .env file and reference contents in docker-compose.yaml
+- Test finance dag
