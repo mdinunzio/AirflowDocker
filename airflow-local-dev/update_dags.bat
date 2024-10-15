@@ -1,0 +1,1 @@
+xcopy "C:\Users\mdinu\Code\finances\finances\dags\*" "C:\Users\mdinu\Code\AirflowDocker\airflow-local-dev\dags\finances\" /s /e /y
