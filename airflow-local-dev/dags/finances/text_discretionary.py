@@ -1,4 +1,5 @@
 import datetime
+import pendulum
 import sys
 
 from airflow.decorators import dag, task
@@ -10,11 +11,15 @@ import finances.io.ynab
 from finances.job.text_discretionary import RECIPIENT, TODAY
 
 
+america_new_york = pendulum.timezone("America/New_York")
+
+
 @dag(
     schedule="30 10 * * *",
     start_date=datetime.datetime(2024, 10, 10),
     catchup=False,
     tags=["ynab"],
+    timezone=america_new_york,
 )
 def text_discretionary():
 
