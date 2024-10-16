@@ -1,7 +1,8 @@
 import datetime
-import pendulum
+import os
 import sys
 
+import pendulum
 from airflow.decorators import dag, task
 from airflow.models.baseoperator import chain
 
@@ -10,15 +11,21 @@ sys.path.append(r"/opt/airflow/code/finances")
 import finances.io.ynab
 from finances.job.text_discretionary import RECIPIENT, TODAY
 
-
 america_new_york = pendulum.timezone("America/New_York")
 
 
 @dag(
     schedule="30 10 * * *",
-    start_date=datetime.datetime(2024, 10, 16, 10, 30, 0, 0, tzinfo=america_new_york),
+    start_date=datetime.datetime(2024, 10, 15, 10, 30, 0, 0, tzinfo=america_new_york),
     catchup=False,
     tags=["ynab"],
+    default_args={
+        "email": os.environ["AIRFLOW_EMAIL_ALERT_LIST"],
+        "email_on_failture": True,
+        "email_on_retry": False,
+        "retries": 2,
+        "retry_delay": datetime.timedelta(minutes=30),
+    },
 )
 def text_discretionary():
 
