@@ -74,6 +74,11 @@ x-airflow-common:
     # AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
     AIRFLOW__CORE__DEFAULT_TIMEZONE: America/New_York
     AIRFLOW__WEBSERVER__DEFAULT_UI_TIMEZONE: America/New_York
+    AIRFLOW__SMTP__SMTP_HOST: smtp.gmail.com
+    AIRFLOW__SMTP__SMTP_USER: ${GOOGLE_USERNAME:-}
+    AIRFLOW__SMTP__SMTP_PASSWORD: ${GOOGLE_APP_PASSWORD:-}
+    AIRFLOW__SMTP__SMTP_PORT: ${GOOGLE_APP_PORT:-}
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: ${GOOGLE_USERNAME:-}
     FINANCES_LOG_DIRECTORY: /opt/airflow/logs/finances
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
