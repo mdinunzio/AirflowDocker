@@ -1,4 +1,3 @@
-- Setup email notifications
 - Setup S3 or C: XCom backend
 - Update compose to use RabbitMQ instead of redis
 - Do standalone celery and flower container demo
@@ -6,6 +5,7 @@
 - Document how to deploy docker/docker compose to AWS
 
 Done:
+- Setup email notifications
 - Update compose to use config on local volume
 - Update compose to have Postgresql folders mapped to local volume
 - Use .env file and reference contents in docker-compose.yaml
