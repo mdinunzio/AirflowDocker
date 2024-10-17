@@ -1,4 +1,5 @@
 - Setup S3 or C: XCom backend
+- Execute script using venv
 - Update compose to use RabbitMQ instead of redis
 - Do standalone celery and flower container demo
 - Do standalone RabbitMQ container demo
