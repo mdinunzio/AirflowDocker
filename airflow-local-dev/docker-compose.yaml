@@ -87,9 +87,6 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - ${CODE_PATH}:/opt/airflow/code
   user: "${AIRFLOW_UID:-50000}:0"
-  command: |
-    bash -c "mkdir /opt/airflow/envs &&
-             python -m venv /opt/airflow/envs/finances"
   depends_on:
     &airflow-common-depends-on
     redis:
