@@ -1,2 +1,2 @@
 xcopy "C:\Users\mdinu\Code\finances\finances\dags\*" "C:\Users\mdinu\Code\AirflowDocker\airflow-local-dev\dags\finances\" /s /e /y
-copy "C:\Users\mdinu\Code\finances\requirements.txt" "C:\Users\mdinu\Code\AirflowDocker\airflow-local-dev\requirements\requirements-finance.txt"
+copy "C:\Users\mdinu\Code\finances\requirements-lite.txt" "C:\Users\mdinu\Code\AirflowDocker\airflow-local-dev\requirements\requirements-finance.txt"
