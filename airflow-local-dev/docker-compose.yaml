@@ -158,7 +158,7 @@ services:
 
   airflow-worker:
     <<: *airflow-common
-    command: celery worker
+    command: bash -c "python -m venv /opt/airflow/myenv && celery worker"
     healthcheck:
       # yamllint disable rule:line-length
       test:
