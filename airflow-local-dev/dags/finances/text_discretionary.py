@@ -31,15 +31,18 @@ AIRFLOW_PYTHON_EXECUTABLE = os.environ["AIRFLOW_PYTHON_EXECUTABLE"]
 )
 def text_discretionary():
 
-    @task.external_python(python=r"/opt/airflow/envs/finances/bin/python")
+    @task
     def fetch_single_date_budget_frame():
         budget = finances.io.ynab.fetch_single_date_budget_frame(
             TODAY.year, TODAY.month
         )
         return budget
 
-    @task
+    @task.external_python(python=r"/opt/airflow/envs/finances/bin/python")
     def get_discretionary_budget(budget):
+        import sys
+
+        sys.path.append(r"/opt/airflow/code/finances")
         discretionary = finances.job.text_discretionary.get_discretionary_budget(budget)
         return discretionary
 
