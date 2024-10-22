@@ -158,7 +158,7 @@ services:
 
   airflow-worker:
     <<: *airflow-common
-    command: bash -c "python -m venv /opt/airflow/myenv && celery worker"
+    entrypoint: /opt/airflow/worker-setup.sh
     healthcheck:
       # yamllint disable rule:line-length
       test:
@@ -178,6 +178,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    volumes:
+      - ${AIRFLOW_PROJ_DIR:-.}/worker-setup.sh:/opt/airflow/worker-setup.sh
 
   airflow-triggerer:
     <<: *airflow-common
