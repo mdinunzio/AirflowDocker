@@ -180,6 +180,7 @@ services:
         condition: service_completed_successfully
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}/worker-setup.sh:/opt/airflow/worker-setup.sh
+      - ${AIRFLOW_PROJ_DIR:-.}/requirements:/opt/airflow/requirements
 
   airflow-triggerer:
     <<: *airflow-common
