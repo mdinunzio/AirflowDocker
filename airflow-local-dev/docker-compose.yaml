@@ -179,6 +179,11 @@ services:
       airflow-init:
         condition: service_completed_successfully
     volumes:
+      - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
+      - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
+      - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
+      - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+      - ${CODE_PATH}:/opt/airflow/code
       - ${AIRFLOW_PROJ_DIR:-.}/worker-setup.sh:/opt/airflow/worker-setup.sh
       - ${AIRFLOW_PROJ_DIR:-.}/requirements:/opt/airflow/requirements
 
